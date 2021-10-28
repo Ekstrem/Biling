@@ -8,9 +8,4 @@
       <ProjectReference Include="C:\Users\Ekstrem\Documents\GitHub\Hive\Source\Hive.SeedWorks.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Implementation" />
-      <Folder Include="Specifications" />
-    </ItemGroup>
-
 </Project>

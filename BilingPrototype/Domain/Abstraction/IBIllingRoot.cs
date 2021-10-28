@@ -10,7 +10,7 @@ namespace Domain.Abstraction
         /// <summary>
         /// Идентификатор абонента.
         /// </summary>
-        string AbonentId { get; }
+        string SubscriberId { get; }
         
         /// <summary>
         /// Партнёрский код.
