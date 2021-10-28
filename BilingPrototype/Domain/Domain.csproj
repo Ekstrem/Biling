@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="C:\Users\Ekstrem\Documents\GitHub\Hive\Source\Hive.SeedWorks.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Implementation" />
+      <Folder Include="Specifications" />
+    </ItemGroup>
+
+</Project>
