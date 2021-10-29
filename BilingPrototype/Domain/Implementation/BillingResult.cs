@@ -1,25 +1,31 @@
 ﻿using System.Collections.Generic;
+using Domain.Abstraction;
 using Hive.SeedWorks.Invariants;
 using Hive.SeedWorks.Result;
 using Hive.SeedWorks.TacticalPatterns;
 
 namespace Domain.Implementation
 {
-    internal class BillingResult : AggregateResult<IBilling>
+    internal class BillingResult : AggregateResult<IBilling, IBillingAnemicModel>
     {
         private readonly DomainOperationResultEnum _result;
         private readonly IEnumerable<string> _reason;
 
-        internal BillingResult(IAnemicModel<IBilling> oldVersion, IAnemicModel<IBilling> newVersion, DomainOperationResultEnum result, IEnumerable<string> reason)
+        internal BillingResult(
+            IBillingAnemicModel oldVersion,
+            IBillingAnemicModel newVersion,
+            DomainOperationResultEnum result,
+            IEnumerable<string> reason)
             : base(MakeBusinessOperationData(oldVersion, newVersion))
         {
             _result = result;
             _reason = reason;
         }
 
-        private static BusinessOperationData<IBilling> MakeBusinessOperationData(
-            IAnemicModel<IBilling> oldVersion, IAnemicModel<IBilling> newVersion)
-            => BusinessOperationData<IBilling>.Commit(oldVersion, newVersion);
+        private static BusinessOperationData<IBilling, IBillingAnemicModel> MakeBusinessOperationData(
+            IBillingAnemicModel oldVersion, IBillingAnemicModel newVersion)
+            => BusinessOperationData<IBilling, IBillingAnemicModel>
+                .Commit<IBilling, IBillingAnemicModel>(oldVersion, newVersion);
 
         public override DomainOperationResultEnum Result => _result;
 

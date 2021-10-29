@@ -17,6 +17,8 @@ namespace Domain.Implementation
 
         private Aggregate(IBillingAnemicModel anemicModel) => _anemicModel = anemicModel;
 
+        public static Aggregate Create(IBillingAnemicModel anemicModel) => new Aggregate(anemicModel);
+
         #region Aggregate tech  props
 
         public Guid Id => _anemicModel.Id;
@@ -54,20 +56,19 @@ namespace Domain.Implementation
         
         #endregion
 
-        public AggregateResult<IBilling> SubscriberChoseDefaultTariff(IBillingAnemicModel model,
-            ICommandToAggregate commandMetadata)
-            => BusinessOperationData<IBilling>
+        public AggregateResult<IBilling, IBillingAnemicModel> SubscriberChoseDefaultTariff(IBillingAnemicModel model)
+            => BusinessOperationData
                 .Commit(_anemicModel, model)
                 .ValidateCommand(
                     new IsNewSubscriberBillingValidator(),
                     new IsTranslatedEnteringTariffCorrectValidator());
 
-        public AggregateResult<IBilling> SubscriberRequestedNewPackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata)
+        public AggregateResult<IBilling, IBillingAnemicModel> SubscriberRequestedNewPackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata)
         {
             throw new NotImplementedException();
         }
 
-        public AggregateResult<IBilling> RequestPackageAccepted(string requestId, ICommandToAggregate commandMetadata)
+        public AggregateResult<IBilling, IBillingAnemicModel> RequestPackageAccepted(string requestId, ICommandToAggregate commandMetadata)
         {
             if (RequestedPackages.Packages.All(f => f.RequestId != requestId))
             {
@@ -97,22 +98,22 @@ namespace Domain.Implementation
                 .PipeTo(am => new BillingResult(_anemicModel, am, DomainOperationResultEnum.Success, default));
         }
 
-        public AggregateResult<IBilling> RequestPackageRejected(string requestId, ICommandToAggregate commandMetadata)
+        public AggregateResult<IBilling, IBillingAnemicModel> RequestPackageRejected(string requestId, ICommandToAggregate commandMetadata)
         {
             throw new NotImplementedException();
         }
 
-        public AggregateResult<IBilling> ActivatePackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata)
+        public AggregateResult<IBilling, IBillingAnemicModel> ActivatePackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata)
         {
             throw new NotImplementedException();
         }
 
-        public AggregateResult<IBilling> ExpiredPackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata)
+        public AggregateResult<IBilling, IBillingAnemicModel> ExpiredPackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata)
         {
             throw new NotImplementedException();
         }
 
-        public AggregateResult<IBilling> SendDocument(IBillingAnemicModel model, ICommandToAggregate commandMetadata)
+        public AggregateResult<IBilling, IBillingAnemicModel> SendDocument(IBillingAnemicModel model, ICommandToAggregate commandMetadata)
         {
             throw new NotImplementedException();
         }

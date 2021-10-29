@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hive.SeedWorks", "C:\Users\Ekstrem\Documents\GitHub\Hive\Source\Hive.SeedWorks.csproj", "{E3228979-F45C-46E1-99B3-7D1698E1C558}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{8599B2C4-BF35-4EFB-8976-B9E6D3FC6966}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{E3228979-F45C-46E1-99B3-7D1698E1C558}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3228979-F45C-46E1-99B3-7D1698E1C558}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3228979-F45C-46E1-99B3-7D1698E1C558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8599B2C4-BF35-4EFB-8976-B9E6D3FC6966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8599B2C4-BF35-4EFB-8976-B9E6D3FC6966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8599B2C4-BF35-4EFB-8976-B9E6D3FC6966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8599B2C4-BF35-4EFB-8976-B9E6D3FC6966}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

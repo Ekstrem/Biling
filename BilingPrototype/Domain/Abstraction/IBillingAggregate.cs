@@ -15,9 +15,8 @@ namespace Domain.Abstraction
         /// Подписчик выбрал тариф по умолчанию.
         /// </summary>
         /// <param name="model">Данные команды.</param>
-        /// <param name="commandMetadata">Метаданные команды.</param>
         /// <returns>Результат доменной операции.</returns>
-        AggregateResult<IBilling> SubscriberChoseDefaultTariff(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
+        AggregateResult<IBilling, IBillingAnemicModel> SubscriberChoseDefaultTariff(IBillingAnemicModel model);
         
         /// <summary>
         /// Подписчик запросил новый пакет.
@@ -25,7 +24,7 @@ namespace Domain.Abstraction
         /// <param name="model">Данные команды.</param>
         /// <param name="commandMetadata">Метаданные команды.</param>
         /// <returns>Результат доменной операции.</returns>
-        AggregateResult<IBilling> SubscriberRequestedNewPackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
+        AggregateResult<IBilling, IBillingAnemicModel> SubscriberRequestedNewPackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
         
         /// <summary>
         /// Запрашиваемый пакет подтверждён.
@@ -33,7 +32,7 @@ namespace Domain.Abstraction
         /// <param name="model">Данные команды.</param>
         /// <param name="commandMetadata">Метаданные команды.</param>
         /// <returns>Результат доменной операции.</returns>
-        AggregateResult<IBilling> RequestPackageAccepted(string requestId, ICommandToAggregate commandMetadata);
+        AggregateResult<IBilling, IBillingAnemicModel> RequestPackageAccepted(string requestId, ICommandToAggregate commandMetadata);
         
         /// <summary>
         /// Запрашиваемый пакет отклонён.
@@ -41,7 +40,7 @@ namespace Domain.Abstraction
         /// <param name="model">Данные команды.</param>
         /// <param name="commandMetadata">Метаданные команды.</param>
         /// <returns>Результат доменной операции.</returns>
-        AggregateResult<IBilling> RequestPackageRejected(string requestId, ICommandToAggregate commandMetadata);
+        AggregateResult<IBilling, IBillingAnemicModel> RequestPackageRejected(string requestId, ICommandToAggregate commandMetadata);
         
         /// <summary>
         /// Пакет(ы)\ активирован(ы).
@@ -49,7 +48,7 @@ namespace Domain.Abstraction
         /// <param name="model">Данные команды.</param>
         /// <param name="commandMetadata">Метаданные команды.</param>
         /// <returns>Результат доменной операции.</returns>
-        AggregateResult<IBilling> ActivatePackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
+        AggregateResult<IBilling, IBillingAnemicModel> ActivatePackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
         
         /// <summary>
         /// Пакет завершил своё действие.
@@ -57,7 +56,7 @@ namespace Domain.Abstraction
         /// <param name="model">Данные команды.</param>
         /// <param name="commandMetadata">Метаданные команды.</param>
         /// <returns>Результат доменной операции.</returns>
-        AggregateResult<IBilling> ExpiredPackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
+        AggregateResult<IBilling, IBillingAnemicModel> ExpiredPackage(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
         
         /// <summary>
         /// Пользователь отправил документ.
@@ -65,7 +64,7 @@ namespace Domain.Abstraction
         /// <param name="model">Данные команды.</param>
         /// <param name="commandMetadata">Метаданные команды.</param>
         /// <returns>Результат доменной операции.</returns>
-        AggregateResult<IBilling> SendDocument(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
+        AggregateResult<IBilling, IBillingAnemicModel> SendDocument(IBillingAnemicModel model, ICommandToAggregate commandMetadata);
         
         
     }

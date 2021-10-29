@@ -1,14 +1,16 @@
 ﻿using System;
+using Domain.Abstraction;
 
 namespace Domain.Implementation
 {
-    public class DefaultAnemicModel : AnemicModel
+    public sealed class DefaultAnemicModel : AnemicModel
     {
-        protected DefaultAnemicModel(Guid id)
+        private DefaultAnemicModel(Guid id)
             : base(id, default, default, default, default,
                 default, default, default, default, default,
                 default, default, default)
-        {
-        }
+        { }
+
+        public static IBillingAnemicModel Create(Guid id) => new DefaultAnemicModel(id);
     }
 }

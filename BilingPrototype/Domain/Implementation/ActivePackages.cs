@@ -8,6 +8,6 @@ namespace Domain.Implementation
 
         public IPackageOfService[] Packages { get; }
 
-        public static ActivePackages CreateInstance(IPackageOfService[] packages) => new ActivePackages(packages);
+        public static ActivePackages Create(IPackageOfService[] packages) => new ActivePackages(packages);
     }
 }
