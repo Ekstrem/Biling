@@ -13,11 +13,11 @@ namespace Domain.Tests
         {
             var aggregateId = Guid.NewGuid();
             var pureModel = AggregateBuilder.CreatePureModelForNewBilling(aggregateId);
-            var def = DefaultAnemicModel
+            var result = DefaultAnemicModel
                 .Create(pureModel.Id)
-                .PipeTo(Aggregate.Create);
-            var result = def.SubscriberChoseDefaultTariff(def);
-            Assert.True(result.Result == DomainOperationResultEnum.Success);
+                .PipeTo(Aggregate.Create)
+                .SubscriberChoseDefaultTariff(pureModel);
+            Assert.Equal(DomainOperationResultEnum.Success, result.Result);
         }
     }
 }
